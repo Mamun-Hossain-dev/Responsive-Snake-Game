@@ -1,9 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap');
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Protest Revolution', sans-serif;
 }
 
 html {
   font-size: 16px;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background: url('./assets/snake-bg.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100vh;
+  background-position: center;
+}
+
+.header-content {
+  padding-top: 1vmin;
+  display: flex;
+  width: 95%;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#snake-board {
+  width: 65vmin;
+  height: 65vmin;
+  background: linear-gradient(rgb(147, 240, 147), rgb(176, 232, 117));
+  border: 0.4rem solid rgb(83, 159, 45);
+  display: grid;
+  grid-template-columns: repeat(25, 1fr);
+  grid-template-rows: repeat(25, 1fr);
+}
+
+/* Media Queries */
+@media only screen and (max-width: 600px) {
+  html {
+    font-size: 8px;
+  }
 }
