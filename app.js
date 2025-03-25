@@ -213,3 +213,11 @@ controlBtns.forEach((btn) => {
     });
   });
 });
+
+// Menu bar for responsiveness of level section
+const menuBar = document.getElementById("menu");
+const levelBtnBox = document.querySelector(".level-btns");
+
+menuBar.addEventListener("click", () => {
+  levelBtnBox.classList.toggle("move-left");
+});

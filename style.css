@@ -38,6 +38,7 @@ body {
 
 .container {
   height: 70vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -124,7 +125,7 @@ body {
   position: absolute;
   top: 40%;
   left: 5%;
-  width: 20vmin;
+  width: 20%;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -134,6 +135,7 @@ body {
   padding: 0.8rem 0.9rem 2rem;
   justify-content: center;
   align-items: center;
+  transition: transform 0.3s ease-in-out;
 }
 
 .level-btn {
@@ -165,6 +167,33 @@ body {
   background: #881003b3 !important;
 }
 
+#menu {
+  position: absolute;
+  top: 30%;
+  left: 1%;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  color: white;
+}
+
+#menu i {
+  font-size: 3rem;
+  transition: all 0.3s ease-in-out;
+  color: rgb(11, 9, 7);
+}
+
+#menu i:active {
+  transform: scale(1.25);
+  color: rgb(236, 12, 65);
+}
+
+.move-left {
+  transform: translateX(-300px);
+}
+
 /* Media Queries */
 @media only screen and (max-width: 600px) {
   html {
@@ -176,10 +205,30 @@ body {
   html {
     font-size: 10px;
   }
+
+  .level-btns {
+    left: 1%;
+  }
 }
 
-/* @media only screen and (max-width: 960px) {
+@media only screen and (min-width: 800px) {
   html {
-    
+    font-size: 10px;
   }
-} */
+}
+
+@media only screen and (min-width: 924px) {
+  html {
+    font-size: 12px;
+  }
+
+  #menu {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  html {
+    font-size: 16px;
+  }
+}
