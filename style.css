@@ -37,7 +37,7 @@ body {
 }
 
 .container {
-  height: 80vh;
+  height: 70vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,9 +73,59 @@ body {
   border-radius: 4px;
 }
 
+.controls-btn {
+  text-align: center;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    '. up .'
+    'left down right';
+  gap: 1.5rem;
+}
+
+.controls-btn button:nth-child(1) {
+  grid-area: up;
+}
+.controls-btn button:nth-child(2) {
+  grid-area: left;
+}
+.controls-btn button:nth-child(3) {
+  grid-area: right;
+}
+.controls-btn button:nth-child(4) {
+  grid-area: down;
+}
+
+.controls-btn button {
+  background-color: white;
+  border: none;
+  border-radius: 50%;
+  width: 8vmin;
+  height: 8vmin;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.controls-btn button:active {
+  transform: scale(0.9);
+}
+
+.controls-btn button i {
+  font-size: 1.9rem;
+  color: rgb(26, 26, 27);
+}
+
 /* Media Queries */
 @media only screen and (max-width: 600px) {
   html {
     font-size: 8px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  html {
+    font-size: 10px;
   }
 }

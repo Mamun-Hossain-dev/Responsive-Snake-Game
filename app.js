@@ -3,6 +3,7 @@ const snakeBoard = document.getElementById("snake-board");
 const scoreBox = document.getElementById("score");
 const pointsBox = document.getElementById("points");
 const highScoreBox = document.getElementById("high-score");
+const controlBtns = document.querySelectorAll(".controls-btn button");
 
 // Assets Variables
 const foodSound = new Audio("./assets/food.mp3");
@@ -155,4 +156,21 @@ window.addEventListener("keydown", (e) => {
   if (directions[e.key]) {
     inputDir = directions[e.key];
   }
+});
+
+// Button Controls
+controlBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    moveSound.play();
+    const btnDirections = {
+      up: { x: 0, y: -1 },
+      down: { x: 0, y: 1 },
+      right: { x: 1, y: 0 },
+      left: { x: -1, y: 0 },
+    };
+
+    Object.keys(btnDirections).forEach((dir) => {
+      if (btn.classList.contains(dir)) inputDir = btnDirections[dir];
+    });
+  });
 });
