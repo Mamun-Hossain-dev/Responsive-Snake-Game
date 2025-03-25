@@ -79,6 +79,10 @@ const updateHighScore = () => {
   });
 };
 
+// Initially set easy Level
+levelBtns[0].classList.add("selected");
+highScoreBox.innerHTML = getHighScore(levels[0]);
+
 // Reset Game
 const resetGame = () => {
   // Reset game variables
