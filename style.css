@@ -41,6 +41,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 #snake-board {
@@ -101,6 +102,8 @@ body {
   background-color: white;
   border: none;
   border-radius: 50%;
+  border: none;
+  outline: none;
   width: 8vmin;
   height: 8vmin;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
@@ -117,6 +120,51 @@ body {
   color: rgb(26, 26, 27);
 }
 
+.level-btns {
+  position: absolute;
+  top: 40%;
+  left: 5%;
+  width: 20vmin;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 0.8rem;
+  background: linear-gradient(rgb(68, 129, 68), rgb(125, 125, 63));
+  border-radius: 5px;
+  padding: 0.8rem 0.9rem 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.level-btn {
+  width: 70%;
+  border: none;
+  outline: none;
+  padding: 0.6rem 0.9rem;
+  font-size: 1.4rem;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  background: linear-gradient(rgba(158, 199, 158, 0.657), rgb(148, 148, 68));
+  color: white;
+}
+
+.level-btns h2 {
+  color: rgb(255, 255, 253);
+  font-size: 1.9rem;
+  text-decoration: underline;
+}
+
+.level-btn:hover {
+  cursor: pointer;
+  background: rgba(14, 119, 48, 0.7);
+  transform: scale(1.05);
+}
+
+.level-btn.selected {
+  color: #fff !important;
+  background: #881003b3 !important;
+}
+
 /* Media Queries */
 @media only screen and (max-width: 600px) {
   html {
@@ -129,3 +177,9 @@ body {
     font-size: 10px;
   }
 }
+
+/* @media only screen and (max-width: 960px) {
+  html {
+    
+  }
+} */

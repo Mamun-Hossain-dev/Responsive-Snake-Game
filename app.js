@@ -4,6 +4,7 @@ const scoreBox = document.getElementById("score");
 const pointsBox = document.getElementById("points");
 const highScoreBox = document.getElementById("high-score");
 const controlBtns = document.querySelectorAll(".controls-btn button");
+const levelBtns = document.querySelectorAll(".level-btn");
 
 // Assets Variables
 const foodSound = new Audio("./assets/food.mp3");
@@ -11,7 +12,7 @@ const moveSound = new Audio("./assets/move.mp3");
 const gameOverSound = new Audio("./assets/over.wav");
 
 // Game Variables
-let speed = 10;
+let speed = 6;
 let score = 0;
 let points = 0;
 let highScoreVal = 0;
@@ -39,6 +40,44 @@ function main(ctime) {
 
 // Initialize animation
 window.requestAnimationFrame(main);
+
+// high Score Management
+const setHighScore = (level, score) =>
+  localStorage.setItem(level, JSON.stringify(score));
+
+const getHighScore = (level) => {
+  let storedScore = localStorage.getItem(level);
+  return storedScore ? JSON.parse(storedScore) : 0;
+};
+
+// Reset Level Selection
+const resetActiveClass = () =>
+  levelBtns.forEach((btn) => btn.classList.remove("selected"));
+
+// Level Button Functionality
+const levels = ["easyHighScore", "mediumHighScore", "hardHighScore"];
+levelBtns.forEach((btn, idx) => {
+  btn.addEventListener("click", () => {
+    speed = idx === 0 ? 6 : idx === 1 ? 10 : 15;
+    resetActiveClass();
+    btn.classList.add("selected");
+    highScoreBox.innerHTML = getHighScore(levels[idx]);
+  });
+});
+
+// Update High Score
+const updateHighScore = () => {
+  levelBtns.forEach((btn, idx) => {
+    if (btn.classList.contains("selected")) {
+      let level = levels[idx];
+      let storedHighScore = getHighScore(level);
+      if (score > storedHighScore) {
+        setHighScore(level, score);
+        highScoreBox.innerHTML = score;
+      }
+    }
+  });
+};
 
 // Reset Game
 const resetGame = () => {
@@ -116,7 +155,7 @@ const gameEngine = () => {
     points += 10;
     scoreBox.innerHTML = score.toString().padStart(2, "0");
     pointsBox.innerHTML = points.toString().padStart(4, "0");
-
+    updateHighScore();
     snakeArr.unshift({
       x: snakeArr[0].x + inputDir.x,
       y: snakeArr[0].y + inputDir.y,
