@@ -73,7 +73,7 @@ const updateHighScore = () => {
       let storedHighScore = getHighScore(level);
       if (score > storedHighScore) {
         setHighScore(level, score);
-        highScoreBox.innerHTML = score;
+        highScoreBox.innerHTML = score.toString().padStart(3, "0");
       }
     }
   });
