@@ -14,7 +14,7 @@ A classic Snake game built with HTML, CSS, and JavaScript. Responsive design, so
 
 ## 📸 Screenshots
 
-![Gameplay Screenshot](./assets/screenshot.png)
+![Gameplay Screenshot](./assets/snake-bg.png)
 
 ## 🧩 How to Play
 
